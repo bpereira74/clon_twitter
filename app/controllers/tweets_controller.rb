@@ -6,6 +6,12 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
   end
 
+  def preview
+  end
+
+  def search  
+  end
+  
   # GET /tweets/1 or /tweets/1.json
   def show
   end

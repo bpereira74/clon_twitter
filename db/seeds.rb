@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts 'ingresando 100 datos'
+100.times do |i|
+Tweet.create(username: Faker::Lorem.word,
+             description:Faker::Lorem.paragraph_by_chars(number:400))
+end
