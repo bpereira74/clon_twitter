@@ -1,15 +1,23 @@
 <p style="color: green"><%= notice %></p>
-<%= form_with url: tweets_path, method: :get do |form| %>
-    <%= form.text_field :query_text, placeholder: t('Query text'), value:params[:query_text]%>
-<% end %>
+<%= link_to "New tweet", new_tweet_path %>
+<%# <%= form_with url: tweets_path, method: :get do |form| %>
+<%# <%= form.text_field :query_text, placeholder: t('Query text'), value:params[:query_text]%>
+<%# <% end %>
 <h1>Tweets</h1>
-<div id="tweets">
+<div id="tweets" class="row row-cols-1 row-cols-md-4 g-4">
   <% @tweets.each do |tweet| %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
+  <div class="col">
+    <div class="card" style="height: 15rem;">
+      <div class="card-body">
+        <h5 class="card-title">User:<%= link_to tweet do %><%= tweet.username %></h5>
+      <% end %>  
+        <p class="card-text"><%= truncate(tweet.description, length:150) %></p>
+        <%= link_to "ver tweet", tweet, class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>
 <%= raw pagy_nav(@pagy)%>
 
-<%= link_to "New tweet", new_tweet_path %>
+<%# <%= link_to "New tweet", new_tweet_path %>
