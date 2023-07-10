@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
 <%= link_to "New tweet", new_tweet_path %>
-<%# <%= form_with url: tweets_path, method: :get do |form| %>
-<%# <%= form.text_field :query_text, placeholder: t('Query text'), value:params[:query_text]%>
-<%# <% end %>
+<h6>Búsqueda: <%= form_with url: tweets_path, method: :get do |form| %>
+<%= form.text_field :query_text, placeholder: t('Query text'), value:params[:query_text]%></h6>
+<% end %>
 <h1>Tweets</h1>
 <div id="tweets" class="row row-cols-1 row-cols-md-4 g-4">
   <% @tweets.each do |tweet| %>
